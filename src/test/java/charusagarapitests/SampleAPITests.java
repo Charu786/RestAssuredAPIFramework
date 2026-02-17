@@ -34,6 +34,6 @@ public class SampleAPITests extends BaseTest {
     public void testDeletePost() {
         Response response = apiClient.delete("/posts/1");
         System.out.println("DELETE /posts/1 Response: " + JsonUtils.prettyPrint(response.asString()));
-        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200");
+        Assert.assertEquals(response.getStatusCode(), 201, "Status code should be 201");
     }
 }
