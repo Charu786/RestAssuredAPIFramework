@@ -1,5 +1,7 @@
 package charusagarapiclient;
 
+import charusagarapipayload.PostPayload;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -15,12 +17,12 @@ public class APIClient {
                 .response();
     }
     //POST request with JSON body
-    public Response post(String endpoint, Object body) {
+    public Response postPost(PostPayload payload) {
         return given()
-                .header("Content-Type", "application/json")
-                .body(body)
+                .contentType(ContentType.JSON)
+                .body(payload)
                 .when()
-                .post(endpoint)
+                .post("/posts")
                 .then()
                 .extract()
                 .response();
